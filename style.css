@@ -1,0 +1,323 @@
+/* BOA PARTE DO CÓDIGO AQUI NÃO É FEITA POR MIM
+Código disponibilizado pela Alura
+95% dos comentários também foram feitos pelo Gemini em aula */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+
+* { /* Seletor universal que aplica os estilos a todos os elementos */
+    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho total do elemento */
+}
+
+:root { /* Pseudo-classe que representa o elemento raiz do documento (<html>), usada para definir variáveis globais */
+    --primary-color: #7633d1; /* Cor primária (azul claro) */
+    --secondary-color: #e8eaed; /* Cor secundária (cinza claro) */
+    --tertiary-color: #9aa0a6; /* Cor terciária (cinza médio) */
+    --article-color: #27282b;
+    --bg-color: #19181e; /* Cor de fundo (cinza escuro) */
+}
+
+body { /* Estilos para o corpo do documento */
+    margin: 0; /* Remove a margem padrão do body */
+    background: var(--bg-color); /* Define a cor de fundo usando uma variável */
+    color: var(--secondary-color); /* Define a cor do texto padrão usando uma variável */
+    font-family: "Lexend Deca", sans-serif; /* Define a família da fonte */
+}
+
+header { /* Estilos para o cabeçalho */
+    padding: 2rem 1rem; /* Espaçamento interno (2rem em cima/baixo, 1rem nos lados) */
+    display: flex; /* Habilita o layout flexbox */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    justify-content: space-around; /* Distribui os itens com espaço ao redor */
+    position: sticky; /* Mantém o cabeçalho fixo no topo ao rolar a página */
+    top: 0; /* Posição do topo quando sticky */
+    background: var(--bg-color); /* Cor de fundo do cabeçalho */
+    z-index: 10; /* Define a ordem de empilhamento para ficar sobre outros elementos */
+    border-bottom: 1px solid var(--bg-color); /* Adiciona uma borda inferior */
+    gap: 1rem; /* Espaçamento entre os elementos flex */
+}
+
+header img {
+    width: 4rem; /* EU SEI isso não é o ideal, mas no momento que escrevo o código estou com pressa pra entregar o projeto do evento da Alura */
+}
+
+#titulo {
+    display: flex;
+    gap: 1rem;
+}
+
+header h1 { /* Estilos para o título h1 dentro do cabeçalho */
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2rem; /* Tamanho da fonte */
+    margin: 0rem; /* Remove a margem padrão */
+    font-weight: 500; /* Peso da fonte (médio) */
+    white-space: nowrap; /* Impede a quebra de linha do texto */
+}
+
+header h3 {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--tertiary-color);
+    padding-top: 0.1rem;
+    margin: 0rem;
+}
+
+div input { /* Estilos para o campo de input dentro de uma div */
+    padding: 0.8rem 0.8rem 0.8rem 0.8rem; /* Espaçamento interno */
+    border-radius: 1rem; /* Arredonda as bordas */
+    border: 1px solid var(--tertiary-color); /* Define a borda */
+    background: var(--bg-color); /* Cor de fundo */
+    font-family: inherit; /* Herda a família da fonte do elemento pai */
+    font-size: 1rem; /* Tamanho da fonte */
+    transition: all 0.2s ease; /* Adiciona uma transição suave para todas as propriedades */
+    width: 20rem; /* Largura do input */
+    color: var(--secondary-color); /* Cor do texto digitado */
+}
+
+div input::placeholder { /* Estilos para o texto de placeholder do input */
+    font-size: 1rem; /* Tamanho da fonte do placeholder */
+    font-weight: 300; /* Peso da fonte do placeholder */
+    color: var(--tertiary-color); /* Cor do texto do placeholder */
+}
+
+div input:focus { /* Estilos para o input quando está em foco */
+    outline: none; /* Remove a borda de foco padrão */
+    border-color: var(--bg-color); /* Muda a cor da borda ao focar */
+    box-shadow: 0 0 0 0.1rem var(--tertiary-color); /* Adiciona uma sombra de caixa para indicar foco */
+}
+
+.material-icons {
+    font-size: 1rem;
+    vertical-align: -25%;  /* Sinto que isso que fiz é uma gambiarra também */
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+#botao-busca { /* Estilos para o elemento com o id 'botao-busca' */
+    padding: 0.8rem 1.2rem 0.8rem 1rem; /* Espaçamento interno */
+    border-radius: 1rem; /* Arredonda as bordas */
+    border: none; /* Remove a borda padrão */
+    cursor: pointer; /* Muda o cursor para uma mão ao passar por cima */
+    font-family: inherit; /* Herda a família da fonte */
+    font-weight: 500; /* Peso da fonte */
+    font-size: 1rem; /* Tamanho da fonte */
+    white-space: nowrap; /* Impede a quebra de linha do texto */
+    transition: background-color 0.2s ease, color 0.2s ease; /* Transição suave para cor de fundo e cor do texto */
+    background-color: var(--bg-color); /* Cor de fundo */
+    color: var(--secondary-color); /* Cor do texto */
+    border: 1px solid var(--bg-color); /* Adiciona uma borda */
+    margin: 0.4rem;
+}
+
+#botao-busca:hover { /* Estilos para o botão de busca quando o mouse está sobre ele */
+    background-color: var(--primary-color); /* Muda a cor de fundo ao passar o mouse */
+    box-shadow: 0 0 0 0.1rem var(--primary-color); /* Adiciona uma sombra de caixa */
+}
+
+#botao-busca:active { /* Estilos para o botão de busca quando está sendo pressionado */
+    transform: scale(0.98); /* Efeito de clique (diminui o tamanho) */
+}
+
+
+main { /* Estilos para o conteúdo principal da página */
+    overflow-y: scroll; /* Adiciona uma barra de rolagem vertical se o conteúdo exceder a altura */
+    max-width: 80rem; /* Largura máxima do conteúdo principal */
+    margin: 0 auto; /* Centraliza o conteúdo principal horizontalmente */
+    max-width: 45rem;
+    margin-top: 1rem; /* Margem no topo */
+    height: calc(100vh - 10rem - 4rem); /* Calcula a altura para preencher o espaço restante da tela */
+}
+
+/* #status {
+    background-color: var(--article-color);
+    height: 3rem;
+} */
+
+article { /* Estilos para os elementos de artigo */
+    display: flex;
+    background: none; /* Sem cor de fundo */
+    border-radius: 1rem; /* Sem bordas arredondadas */
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem; /* Remove o padding */
+    margin-bottom: 1.25rem; /* Margem inferior */
+    background-color: var(--article-color);
+    box-shadow: none; /* Sem sombra */
+    transition: background-color 0.3s ease, border-bottom-color 0.3s ease; /* Transição suave */
+    border-bottom: 1px solid var(--bg-color); /* Borda inferior */
+}
+
+article:hover { /* Estilos para o artigo quando o mouse está sobre ele */
+    transform: scale(1.01); /* Aumenta ligeiramente o tamanho ao passar o mouse */
+    cursor: pointer; /* Muda o cursor para uma mão */
+}
+
+article h2 { /* Estilos para o título h2 dentro de um artigo */
+    margin-top: 0; /* Remove a margem superior */
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500; /* Peso da fonte */
+    font-size: 1.8rem; /* Tamanho da fonte */
+    border-bottom: none; /* Sem borda inferior */
+    padding-bottom: 0; /* Sem espaçamento interno inferior */
+    margin-bottom: 0.1rem; /* Margem inferior */
+    color: var(--primary-color); /* Cor do texto */
+}
+
+article p { /* Estilos para os parágrafos dentro de um artigo */
+    margin: 0.5rem 0; /* Margem superior e inferior */
+    line-height: 1.6; /* Altura da linha para melhor legibilidade */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: 300;
+    margin-bottom: 0.5rem; /* Margem inferior */
+    color: var(--secondary-color); /* Cor do texto */
+}
+
+article p strong { /* Estilos para o texto em negrito (strong) dentro de um parágrafo de artigo */
+    color: var(--tertiary-color); /* Cor do texto em negrito */
+    font-weight: 400; /* Peso da fonte */
+}
+
+article a { /* Estilos para os links dentro de um artigo */
+    color: var(--primary-color); /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    font-weight: 700; /* Peso da fonte */
+}
+
+article a:hover { /* Estilos para os links de artigo quando o mouse está sobre eles */
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.quandoevento {
+    color: var(--tertiary-color);
+    margin-top: 0.1rem;
+}
+
+.banner {
+    object-fit: contain;
+    height: 35%;
+    width: 35%;
+    max-height: 12rem; /* EU SEI QUE NÃO É O IDEAL!! Só fazendo isso porque estou com pressa pra entregar o projeto à tempo do evento */
+}
+
+.card {
+    gap: 1rem;
+    /* display: grid; Esse fica pra um futuro */
+} 
+
+.card, #conteudoescrito {
+    height: fit-content;
+    width: fit-content;
+    align-items: center;
+}
+
+.footer { /* Estilos para o rodapé com a classe 'footer' */
+    position: absolute; /* Posicionamento absoluto em relação ao elemento pai posicionado */
+    bottom: 0; /* Alinha na parte inferior */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Largura total */
+    color: var(--tertiary-color); /* Cor do texto */
+    background-color: var(--bg-color); /* Cor de fundo */
+    padding: 15px 20px; /* Espaçamento interno */
+    border-top: 1px solid #3c4043; /* Borda superior */
+    font-size: 0.8rem; /* Tamanho da fonte */
+}
+
+.footer-location { /* Estilos para a localização no rodapé */
+    color: #9aa0a6; /* Cor do texto */
+    margin-bottom: 10px; /* Margem inferior */
+}
+
+.footer-links { /* Estilos para a lista de links no rodapé */
+    list-style: none; /* Remove os marcadores da lista */
+    display: flex; /* Habilita o layout flexbox */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    padding: 0; /* Obrigado Gemini por me avisar que lista de links tem padding padrão escondido, tava procurando igual doido no código */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 30px; /* Espaçamento entre os links */
+}
+
+.footer-links a { /* Estilos para os links dentro da lista do rodapé */
+    color: var(--secondary-color); /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado */
+    transition: color 0.2s; /* Transição suave para a cor */
+}
+
+.footer-links a:hover { /* Estilos para os links do rodapé quando o mouse está sobre eles */
+    color: var(--primary-color); /* Muda a cor do link ao passar o mouse */
+}
+
+#disclaimer {
+    color: var(--tertiary-color);
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) { /* Bloco de media query para telas com largura máxima de 768px (tablets, etc.) */
+    header { /* Estilos para telas com largura máxima de 768px */
+        flex-direction: column; /* Organiza os itens do cabeçalho em coluna */
+        padding: 1rem; /* Reduz o espaçamento interno */
+    }
+
+    header h1 { /* Estilos para o h1 no cabeçalho em telas de até 768px */
+        text-align: center; /* Centraliza o texto */
+        margin-bottom: 1rem; /* Adiciona margem inferior */
+    }
+
+    div input { /* Estilos para o input em telas de até 768px */
+        width: 90vw; /* Largura baseada na largura da viewport */
+        font-size: 1.2rem; /* Reduz o tamanho da fonte */
+    }
+
+    main { /* Estilos para o main em telas menores */
+        padding: 0 1rem; /* Adiciona espaçamento lateral */
+    }
+
+    article:hover { /* Estilos para o article em telas de até 768px */
+        transform: none; /* Remove o efeito de escala ao passar o mouse */
+    }
+}
+
+@media (max-width: 480px) { /* Bloco de media query para telas com largura máxima de 480px (smartphones) */
+    header h1 { /* Estilos para o h1 em telas com largura máxima de 480px */
+        font-size: 1rem; /* Reduz ainda mais o tamanho da fonte */
+        max-width: 70%; /* Define uma largura máxima */
+        word-wrap: break-word; /* Permite a quebra de palavras longas */
+    }
+
+    div input, /* Estilos para o input e seu placeholder em telas de até 480px */
+    div input::placeholder {
+        font-size: 1rem; /* Reduz o tamanho da fonte */
+    }
+
+    article h2 { /* Estilos para o h2 do article em telas de até 480px */
+        font-size: 1.3rem; /* Reduz o tamanho da fonte */
+    }
+
+    div { /* Estilos para a div do cabeçalho em telas de até 480px */
+        display: flex; /* Habilita flexbox */
+        align-items: center; /* Alinha itens ao centro */
+        justify-content: center; /* Centraliza itens */
+        flex-direction: column; /* Organiza em coluna */
+        gap: 0.5rem; /* Espaçamento entre os itens */
+    }
+
+    .footer { /* Estilos para o rodapé em telas de até 480px */
+        display: none; /* Oculta o rodapé */
+    }
+
+    button { /* Estilos para o botão em telas de até 480px */
+        margin-top: 1rem; /* Adiciona margem no topo */
+    }
+}
+
+/* .open-in-new-icon {
+    font-size: 1rem;
+} */
